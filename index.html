@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <title>VectorFlux.AI | Engineering Your Future</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="VectorFlux.AI offers paid AI/ML internships, project development assistance, and professional job support for engineering students in India. Get hands-on learning with real-world projects, expert mentorship, and industry-grade training." />
+  <meta name="keywords" content="AI internship, ML internship, Python training, project assistance, engineering students, paid internship, machine learning course, artificial intelligence training, college project help, DevOps support, Java Spring Boot" />
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="VectorFlux.AI | Engineering Your Future with AI/ML" />
+  <meta property="og:description" content="Student-first tech venture offering paid AI/ML internships, real-world project development, and professional support. Transform your skills in 45 days with industry-grade training." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vectorflux-ai.github.io/" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -53,14 +63,15 @@
       animation: fadeIn 0.8s ease-out forwards;
     }
 
-    /* Hover effects */
+    /* Enhanced Hover effects */
     .card-hover {
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.3);
     }
 
     /* Mobile menu */
@@ -72,6 +83,126 @@
 
     .mobile-menu.active {
       max-height: 300px;
+    }
+
+    /* Particle background */
+    @keyframes particle-float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particle-float 15s infinite ease-in-out;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+    }
+
+    /* Wave divider */
+    .wave-divider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+    }
+
+    /* Counter animation */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .counter {
+      animation: countUp 0.8s ease-out forwards;
+    }
+
+    /* FAQ accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-answer.active {
+      max-height: 500px;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5); }
+      50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.8); }
     }
   </style>
 
@@ -137,8 +268,13 @@
 
 <!-- HERO / BRAND -->
 <section class="pt-32 pb-28 bg-gradient-to-br from-indigo-50 via-white to-violet-50 relative overflow-hidden">
-  <!-- Background decoration -->
+  <!-- Particle background -->
   <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="particle" style="width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="width: 60px; height: 60px; top: 20%; left: 80%; animation-delay: 2s;"></div>
+    <div class="particle" style="width: 80px; height: 80px; top: 60%; left: 15%; animation-delay: 4s;"></div>
+    <div class="particle" style="width: 50px; height: 50px; top: 70%; left: 85%; animation-delay: 6s;"></div>
+    <div class="particle" style="width: 90px; height: 90px; top: 40%; left: 50%; animation-delay: 3s;"></div>
     <div class="absolute top-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
     <div class="absolute bottom-20 left-10 w-72 h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
   </div>
@@ -156,13 +292,15 @@
     </h1>
 
     <!-- Enhanced BRAND CAPTION -->
-    <p class="mt-6 text-xl md:text-3xl text-slate-700 font-bold fade-in" style="animation-delay: 0.4s;">
-      Engineering your future.
+    <p class="mt-6 text-2xl md:text-4xl text-slate-700 font-bold fade-in" style="animation-delay: 0.4s;">
+      Engineering your future with AI & ML excellence
     </p>
 
-    <p class="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed fade-in" style="animation-delay: 0.6s;">
-      A student-first tech venture offering <span class="font-semibold text-indigo-600">paid internships</span>,
-      real-world AI/ML exposure, and fast project development support for pre-final and final year engineering students in India.
+    <p class="mt-8 max-w-4xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed fade-in" style="animation-delay: 0.6s;">
+      A <span class="font-semibold text-indigo-600">student-first tech venture</span> offering paid AI/ML internships with real-world project experience,
+      fast-track project development support, and professional job assistance for pre-final and final year engineering students across India.
+      We bridge the gap between academic learning and industry expectations through <span class="font-semibold text-indigo-600">hands-on training</span>,
+      <span class="font-semibold text-indigo-600">affordable pricing</span>, and <span class="font-semibold text-indigo-600">direct expert mentorship</span>.
     </p>
 
     <div class="mt-14 flex flex-col sm:flex-row justify-center gap-5 fade-in" style="animation-delay: 0.8s;">
@@ -176,25 +314,70 @@
       </a>
     </div>
 
-    <!-- Trust Badge -->
-    <div class="mt-16 flex flex-wrap justify-center gap-8 text-sm text-slate-600 fade-in" style="animation-delay: 1s;">
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+    <!-- Enhanced Trust Badges -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm fade-in" style="animation-delay: 1s;">
+      <div class="flex flex-col items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-indigo-100">
+        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
         </svg>
-        <span class="font-semibold">Hands-On Learning</span>
+        <span class="font-bold text-slate-700">Certified Internship</span>
       </div>
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+      <div class="flex flex-col items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-indigo-100">
+        <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
         </svg>
-        <span class="font-semibold">Real Industry Projects</span>
+        <span class="font-bold text-slate-700">Industry-Grade Projects</span>
       </div>
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+      <div class="flex flex-col items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-indigo-100">
+        <svg class="w-8 h-8 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
         </svg>
-        <span class="font-semibold">Direct Expert Support</span>
+        <span class="font-bold text-slate-700">1-on-1 Mentorship</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-indigo-100">
+        <svg class="w-8 h-8 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+        </svg>
+        <span class="font-bold text-slate-700">Flexible Schedule</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+  </svg>
+</div>
+
+<!-- STATS SECTION -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center counter">
+        <div class="text-5xl md:text-6xl font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent mb-3">
+          <span class="stat-counter" data-target="50">0</span>+
+        </div>
+        <p class="text-slate-600 font-semibold text-lg">Students Trained</p>
+      </div>
+      <div class="text-center counter" style="animation-delay: 0.2s;">
+        <div class="text-5xl md:text-6xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
+          <span class="stat-counter" data-target="30">0</span>+
+        </div>
+        <p class="text-slate-600 font-semibold text-lg">Projects Delivered</p>
+      </div>
+      <div class="text-center counter" style="animation-delay: 0.4s;">
+        <div class="text-5xl md:text-6xl font-black bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-3">
+          <span class="stat-counter" data-target="100">0</span>%
+        </div>
+        <p class="text-slate-600 font-semibold text-lg">Success Rate</p>
+      </div>
+      <div class="text-center counter" style="animation-delay: 0.6s;">
+        <div class="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
+          4.9<span class="text-3xl">★</span>
+        </div>
+        <p class="text-slate-600 font-semibold text-lg">Student Rating</p>
       </div>
     </div>
   </div>
@@ -204,11 +387,11 @@
 <section class="py-28 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black">Why VectorFlux.AI?</h2>
-      <p class="mt-4 text-lg text-slate-600">We're different from the rest, and here's why</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Why VectorFlux.AI?</h2>
+      <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">We're different from the rest. Here's what makes us unique in the crowded ed-tech landscape.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
       <div class="p-10 rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-white card-hover group">
         <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-200">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,7 +400,9 @@
         </div>
         <h3 class="font-bold text-2xl mb-4">Built by Engineers</h3>
         <p class="text-slate-600 leading-relaxed">
-          Designed by professionals who understand industry expectations — not generic course sellers.
+          Designed by working professionals who understand real industry expectations — not generic course sellers. 
+          Every module is crafted based on actual production system requirements and development workflows. 
+          We teach what companies actually need, not just theoretical concepts that sound impressive.
         </p>
       </div>
 
@@ -229,7 +414,9 @@
         </div>
         <h3 class="font-bold text-2xl mb-4">Outcome-Driven Learning</h3>
         <p class="text-slate-600 leading-relaxed">
-          Clear timelines, real deliverables, and projects you can confidently explain.
+          Clear timelines, real deliverables, and projects you can confidently explain in interviews. 
+          We don't just teach you to code; we ensure you understand architecture, design patterns, and trade-offs.
+          Every session has measurable outcomes, and every project builds your portfolio with work you truly comprehend.
         </p>
       </div>
 
@@ -241,7 +428,39 @@
         </div>
         <h3 class="font-bold text-2xl mb-4">Transparent & Honest</h3>
         <p class="text-slate-600 leading-relaxed">
-          Simple pricing. No fake placement promises. No hidden terms.
+          Simple, upfront pricing with no hidden charges. No fake placement guarantees or misleading claims.
+          We're straightforward about what we can deliver and what we cannot. Our success is built on student trust,
+          not marketing gimmicks. You'll always know exactly what you're paying for and what you'll receive.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-10 rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-white card-hover group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-200">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="font-bold text-2xl mb-4">Affordable & Accessible</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Premium education shouldn't cost a fortune. Our pricing is designed to be accessible to students from all backgrounds.
+          At ₹6,000 for 45 days of intensive training, we provide exceptional value without compromising on quality.
+          We believe financial constraints shouldn't limit your potential, which is why we keep our programs affordable while maintaining industry-standard curriculum.
+        </p>
+      </div>
+
+      <div class="p-10 rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-white card-hover group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-200">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="font-bold text-2xl mb-4">Personalized Mentorship</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Not just pre-recorded videos and automated responses. You get direct access to experienced engineers for doubt clearing,
+          code reviews, and career guidance. We understand that every student learns differently, so we adapt our teaching approach
+          to your pace and learning style. Your success is our priority, and we're committed to helping you achieve your goals.
         </p>
       </div>
     </div>
@@ -251,35 +470,84 @@
 <!-- WHO IS BEHIND VECTORFLUX -->
 <section class="py-28 bg-gradient-to-br from-slate-50 to-indigo-50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-12">Who's Behind VectorFlux.AI?</h2>
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-16">Who's Behind VectorFlux.AI?</h2>
 
-    <div class="bg-white border-2 border-indigo-100 rounded-3xl p-12 shadow-xl shadow-indigo-500/5">
+    <div class="bg-white border-2 border-indigo-100 rounded-3xl p-12 shadow-xl shadow-indigo-500/5 mb-12">
       <div class="flex flex-col items-center text-center">
         <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white text-2xl font-bold mb-6 shadow-lg">
           👨‍💻
         </div>
 
-        <p class="text-xl md:text-2xl text-slate-700 font-semibold leading-relaxed max-w-3xl">
-          VectorFlux.AI is founded and run by a <span class="text-indigo-600 font-bold">working software engineer</span> with real
-          industry experience in building, deploying, and maintaining production systems.
+        <p class="text-xl md:text-2xl text-slate-700 font-semibold leading-relaxed max-w-4xl">
+          VectorFlux.AI is founded and run by a <span class="text-indigo-600 font-bold">working software engineer</span> with over 
+          <span class="text-indigo-600 font-bold">5+ years</span> of real industry experience in building, deploying, and maintaining 
+          production systems at scale.
         </p>
 
-        <div class="mt-10 grid md:grid-cols-2 gap-6 max-w-4xl">
-          <div class="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl p-8 border border-indigo-100">
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-3xl">
+          Our founder has worked extensively with <strong>Python, Java, AWS, DevOps, and Machine Learning</strong> technologies,
+          delivering solutions for companies across <strong>fintech, healthcare, and e-commerce</strong> domains. This hands-on experience
+          in enterprise-grade development ensures every lesson taught is grounded in practical, real-world applications rather than 
+          just academic theory.
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-6 max-w-4xl w-full">
+          <div class="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl p-8 border border-indigo-100 text-left">
             <h4 class="font-bold text-lg text-indigo-900 mb-3">Our Mission</h4>
             <p class="text-slate-700 leading-relaxed">
-              Bridge the gap between <strong>what colleges teach</strong> and
-              <strong> what the industry actually expects</strong>.
+              Bridge the gap between <strong>what colleges teach</strong> and <strong>what the industry actually expects</strong>.
+              We're here to empower students with skills that make them job-ready and confident, not just certificate collectors.
             </p>
           </div>
 
-          <div class="bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-8 border border-violet-100">
+          <div class="bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-8 border border-violet-100 text-left">
             <h4 class="font-bold text-lg text-violet-900 mb-3">Our Commitment</h4>
             <p class="text-slate-700 leading-relaxed">
               Every internship and project is handled with <strong>responsibility, transparency,</strong> and <strong>technical depth</strong>.
+              We're not here for quick profits—we're building long-term trust and credibility through quality education.
             </p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Our Values -->
+    <div class="text-center mb-10">
+      <h3 class="text-3xl md:text-4xl font-black">Our Core Values</h3>
+      <p class="mt-3 text-lg text-slate-600">The principles that guide everything we do</p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center card-hover">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-3xl mb-4">
+          🎯
+        </div>
+        <h4 class="font-bold text-lg mb-2">Integrity</h4>
+        <p class="text-slate-600 text-sm">Honest communication, no misleading claims, ethical teaching practices</p>
+      </div>
+
+      <div class="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center card-hover">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-white text-3xl mb-4">
+          🔍
+        </div>
+        <h4 class="font-bold text-lg mb-2">Transparency</h4>
+        <p class="text-slate-600 text-sm">Clear pricing, open processes, realistic expectations set upfront</p>
+      </div>
+
+      <div class="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center card-hover">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center text-white text-3xl mb-4">
+          ⚡
+        </div>
+        <h4 class="font-bold text-lg mb-2">Technical Excellence</h4>
+        <p class="text-slate-600 text-sm">Industry-standard practices, production-grade code, best practices always</p>
+      </div>
+
+      <div class="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center card-hover">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-3xl mb-4">
+          🏆
+        </div>
+        <h4 class="font-bold text-lg mb-2">Student Success</h4>
+        <p class="text-slate-600 text-sm">Your growth is our success metric. We invest in your journey</p>
       </div>
     </div>
   </div>
@@ -290,8 +558,8 @@
 <section id="internship" class="py-28 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black">Paid Internship Program</h2>
-      <p class="mt-4 text-lg text-slate-600">Transform your skills in 45 days</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Paid Internship Program</h2>
+      <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">Transform your skills in 45 days with our comprehensive AI/ML training program designed for engineering students</p>
     </div>
 
     <div class="max-w-5xl mx-auto">
@@ -302,7 +570,7 @@
               <h3 class="text-3xl md:text-4xl font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                 AI / ML using Python
               </h3>
-              <p class="mt-2 text-slate-600 font-medium">Complete hands-on training with real projects</p>
+              <p class="mt-2 text-slate-600 font-medium text-lg">Complete hands-on training with real projects</p>
             </div>
             <div class="mt-6 md:mt-0">
               <div class="text-right">
@@ -314,14 +582,44 @@
             </div>
           </div>
 
+          <!-- Three Phases -->
           <div class="grid md:grid-cols-3 gap-6 mb-10">
             <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-8 card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold">1</div>
                 <h4 class="font-bold text-lg">Python Fundamentals</h4>
               </div>
-              <p class="text-blue-900 font-semibold text-2xl">15 Days</p>
-              <p class="mt-2 text-slate-600 text-sm">Core Python, data structures, OOP concepts</p>
+              <p class="text-blue-900 font-semibold text-2xl mb-4">15 Days</p>
+              <ul class="space-y-2 text-sm text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>Variables, data types, operators</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>Control flow (loops, conditionals)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>Functions and modules</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>File handling and exceptions</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>Data structures (lists, tuples, dictionaries, sets)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>Object-Oriented Programming (OOP)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-0.5">•</span>
+                  <span>NumPy and Pandas essentials</span>
+                </li>
+              </ul>
             </div>
 
             <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-2xl p-8 card-hover">
@@ -329,8 +627,37 @@
                 <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">2</div>
                 <h4 class="font-bold text-lg">AI / ML Development</h4>
               </div>
-              <p class="text-indigo-900 font-semibold text-2xl">15 Days</p>
-              <p class="mt-2 text-slate-600 text-sm">ML algorithms, model training, deployment</p>
+              <p class="text-indigo-900 font-semibold text-2xl mb-4">15 Days</p>
+              <ul class="space-y-2 text-sm text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Supervised vs Unsupervised learning</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Linear & Logistic Regression</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Classification algorithms</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Clustering techniques (K-means, DBSCAN)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Introduction to Neural Networks</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Scikit-learn library deep dive</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 mt-0.5">•</span>
+                  <span>Model evaluation metrics and validation</span>
+                </li>
+              </ul>
             </div>
 
             <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-2 border-violet-200 rounded-2xl p-8 card-hover">
@@ -338,8 +665,111 @@
                 <div class="w-10 h-10 rounded-xl bg-violet-600 text-white flex items-center justify-center font-bold">3</div>
                 <h4 class="font-bold text-lg">Capstone Project</h4>
               </div>
-              <p class="text-violet-900 font-semibold text-2xl">15 Days</p>
-              <p class="mt-2 text-slate-600 text-sm">Real-world project from scratch to deployment</p>
+              <p class="text-violet-900 font-semibold text-2xl mb-4">15 Days</p>
+              <ul class="space-y-2 text-sm text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Data collection & preprocessing</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Feature engineering & selection</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Model building & optimization</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Model evaluation & testing</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Deployment preparation</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Complete documentation</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-violet-600 mt-0.5">•</span>
+                  <span>Presentation & viva preparation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- What's Included -->
+          <div class="bg-gradient-to-r from-slate-50 to-indigo-50 rounded-2xl p-8 border-2 border-indigo-100 mb-8">
+            <h4 class="font-bold text-xl text-indigo-900 mb-6">📦 What's Included</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Live interactive sessions with instructor</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Recorded content access for revision</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Personalized code reviews & feedback</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Dedicated doubt-clearing sessions</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Certificate of completion</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Letter of recommendation (top performers)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eligibility Criteria -->
+          <div class="bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl p-8 border-2 border-violet-100 mb-8">
+            <h4 class="font-bold text-xl text-violet-900 mb-6">✅ Eligibility Criteria</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-violet-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Pre-final or final year B.Tech/B.E. students</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-violet-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Basic programming knowledge (preferred)</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-violet-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Laptop with stable internet connection</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-violet-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-slate-700">Dedication to complete 45-day program</p>
+              </div>
             </div>
           </div>
 
@@ -369,19 +799,21 @@
 <section class="py-28 bg-gradient-to-br from-slate-50 to-indigo-50">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black">What You Actually Get</h2>
-      <p class="mt-4 text-lg text-slate-600">Real value, not empty promises</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">What You Actually Get</h2>
+      <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">Real value, not empty promises. Everything we deliver is tangible and measurable.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
       <div class="bg-white border-2 border-slate-200 rounded-3xl p-10 card-hover">
         <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-2xl mb-6">
           🎯
         </div>
         <h3 class="font-bold text-2xl mb-4">Hands-on Guidance</h3>
         <p class="text-slate-600 leading-relaxed">
-          You won't be left alone with videos. Guidance is practical, iterative,
-          and focused on helping you <strong>truly understand</strong> what you build.
+          You won't be left alone with pre-recorded videos and generic responses. Our guidance is <strong>practical, iterative, and personalized</strong>,
+          focused on helping you truly understand what you build. We work with you through debugging sessions, architectural decisions, and code reviews.
+          Every doubt is addressed, every concept is clarified until you're confident. We believe in <strong>learning by doing</strong> with expert supervision,
+          not passive consumption of content.
         </p>
       </div>
 
@@ -391,7 +823,10 @@
         </div>
         <h3 class="font-bold text-2xl mb-4">Interview-Ready Projects</h3>
         <p class="text-slate-600 leading-relaxed">
-          Projects are designed so you can confidently explain <strong>architecture, design decisions,</strong> and <strong>trade-offs</strong>.
+          Projects are meticulously designed so you can confidently explain <strong>architecture, design decisions, and trade-offs</strong> in technical interviews.
+          We don't just help you build something that works—we ensure you understand <strong>why it works</strong>, what alternatives exist, and what implications
+          each choice has. Your project becomes a conversation starter in interviews, not just a line in your resume. You'll be able to discuss scalability,
+          performance optimization, and deployment strategies with clarity.
         </p>
       </div>
 
@@ -401,7 +836,38 @@
         </div>
         <h3 class="font-bold text-2xl mb-4">Ethical Support</h3>
         <p class="text-slate-600 leading-relaxed">
-          No plagiarism, no fake work. All deliverables are <strong>explained and built transparently</strong>.
+          No plagiarism, no fake work, no shortcuts. All deliverables are <strong>explained transparently and built with integrity</strong>.
+          We help you understand concepts deeply rather than copying code from the internet. Every project you submit will be work you can genuinely stand behind.
+          We believe in building your skills, not just your resume. This ethical foundation ensures you're prepared for actual job responsibilities,
+          not just getting through college evaluations.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white border-2 border-slate-200 rounded-3xl p-10 card-hover">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-white text-2xl mb-6">
+          📜
+        </div>
+        <h3 class="font-bold text-2xl mb-4">Certificate & Letter of Recommendation</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Upon successful completion of the internship, you'll receive an <strong>official certificate of completion</strong> that validates your AI/ML training.
+          Top performers who demonstrate exceptional dedication and understanding will also receive a <strong>personalized letter of recommendation</strong>
+          that highlights your specific strengths, technical skills, and project contributions. This letter can significantly boost your job applications
+          and graduate school admissions by providing credible third-party validation of your capabilities.
+        </p>
+      </div>
+
+      <div class="bg-white border-2 border-slate-200 rounded-3xl p-10 card-hover">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-2xl mb-6">
+          💻
+        </div>
+        <h3 class="font-bold text-2xl mb-4">Portfolio-Ready GitHub Projects</h3>
+        <p class="text-slate-600 leading-relaxed">
+          All your projects will be hosted on <strong>GitHub with professional documentation</strong>, including README files, code comments, and architectural diagrams.
+          These aren't throwaway assignments—they're <strong>portfolio pieces</strong> you can showcase to recruiters and hiring managers.
+          We'll guide you on structuring repositories, writing clear documentation, and presenting your work professionally.
+          Your GitHub profile becomes a testament to your skills, with commit history that demonstrates consistent learning and problem-solving ability.
         </p>
       </div>
     </div>
@@ -413,11 +879,11 @@
 <section id="projects" class="py-28 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black">Project Development Assistance</h2>
-      <p class="mt-4 text-lg text-slate-600">For final-year submissions, evaluations, and demos</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Project Development Assistance</h2>
+      <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">For final-year submissions, evaluations, and demos. Fast, professional, and tailored to your requirements.</p>
     </div>
 
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto mb-16">
       <div class="bg-gradient-to-br from-emerald-600 to-teal-600 rounded-3xl shadow-2xl shadow-emerald-500/30 p-1">
         <div class="bg-white rounded-3xl p-12 text-center">
           <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-3xl mb-8 shadow-lg">
@@ -441,19 +907,19 @@
               <svg class="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
-              <p class="text-slate-700"><strong>Complete project documentation</strong></p>
+              <p class="text-slate-700"><strong>Complete project documentation</strong> with detailed reports</p>
             </div>
             <div class="flex items-start gap-3">
               <svg class="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
-              <p class="text-slate-700"><strong>Detailed explanation</strong> for viva preparation</p>
+              <p class="text-slate-700"><strong>Detailed explanation session</strong> for comprehensive viva preparation</p>
             </div>
             <div class="flex items-start gap-3">
               <svg class="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
-              <p class="text-slate-700"><strong>Viva & evaluation support</strong></p>
+              <p class="text-slate-700"><strong>Ongoing viva & evaluation support</strong> until final submission</p>
             </div>
           </div>
 
@@ -463,6 +929,53 @@
         </div>
       </div>
     </div>
+
+    <!-- Project Types & Domains -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-black text-center mb-8">Project Types We Support</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-6">
+          <h4 class="font-bold text-lg mb-3 text-blue-900">Web Applications</h4>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li>• React / Angular frontends</li>
+            <li>• Django / Flask backends</li>
+            <li>• Node.js / Express.js APIs</li>
+            <li>• Full-stack MERN/MEAN projects</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-2 border-violet-200 rounded-2xl p-6">
+          <h4 class="font-bold text-lg mb-3 text-violet-900">AI/ML & Data Science</h4>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li>• Predictive modeling projects</li>
+            <li>• NLP & text analysis systems</li>
+            <li>• Computer vision applications</li>
+            <li>• Recommendation engines</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl p-6">
+          <h4 class="font-bold text-lg mb-3 text-emerald-900">Other Technologies</h4>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li>• IoT-based smart systems</li>
+            <li>• Android / iOS mobile apps</li>
+            <li>• Cloud-based solutions (AWS)</li>
+            <li>• Blockchain applications</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Domain Examples -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-black text-center mb-8">Past Project Domains</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 border-2 border-blue-200 rounded-full font-semibold text-blue-900">🏥 Healthcare</span>
+        <span class="px-6 py-3 bg-gradient-to-r from-emerald-100 to-teal-100 border-2 border-emerald-200 rounded-full font-semibold text-emerald-900">💰 Finance & Banking</span>
+        <span class="px-6 py-3 bg-gradient-to-r from-green-100 to-lime-100 border-2 border-green-200 rounded-full font-semibold text-green-900">🌾 Agriculture Tech</span>
+        <span class="px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 border-2 border-purple-200 rounded-full font-semibold text-purple-900">🛒 E-commerce</span>
+        <span class="px-6 py-3 bg-gradient-to-r from-orange-100 to-red-100 border-2 border-orange-200 rounded-full font-semibold text-orange-900">📚 Education Tech</span>
+        <span class="px-6 py-3 bg-gradient-to-r from-violet-100 to-purple-100 border-2 border-violet-200 rounded-full font-semibold text-violet-900">🏡 Smart Home / IoT</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -470,8 +983,8 @@
 <section class="py-28 bg-gradient-to-br from-slate-50 to-emerald-50">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black">How Project Assistance Works</h2>
-      <p class="mt-4 text-lg text-slate-600">Simple, transparent, and efficient process</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">How Project Assistance Works</h2>
+      <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">Simple, transparent, and efficient process from requirement gathering to final delivery</p>
     </div>
 
     <div class="grid md:grid-cols-4 gap-6">
@@ -481,7 +994,9 @@
         </div>
         <h4 class="font-bold text-lg mb-3">Discuss Requirements</h4>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Requirement discussion & feasibility check
+          Share your project guidelines, syllabus requirements, and specific features needed. 
+          We conduct a feasibility check and provide honest feedback on what can be achieved within your timeline and budget.
+          We'll clarify all technical and functional expectations upfront.
         </p>
         <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-6">
           <svg class="text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
@@ -496,7 +1011,9 @@
         </div>
         <h4 class="font-bold text-lg mb-3">Design & Develop</h4>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Design & development aligned to syllabus
+          We design the system architecture and begin development aligned to your college syllabus and guidelines. 
+          Regular progress updates are shared via WhatsApp or calls. You can request changes and provide feedback during development.
+          All code follows industry best practices and clean coding standards.
         </p>
         <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-6">
           <svg class="text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
@@ -511,7 +1028,9 @@
         </div>
         <h4 class="font-bold text-lg mb-3">Deliver & Explain</h4>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Final delivery with explanation
+          Complete project delivery with source code, deployment instructions, and full documentation. 
+          We conduct a detailed explanation session where we walk you through the entire codebase, architecture decisions, 
+          and implementation details so you can confidently present and defend your project.
         </p>
         <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-6">
           <svg class="text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
@@ -526,7 +1045,9 @@
         </div>
         <h4 class="font-bold text-lg mb-3">Documentation & Viva Support</h4>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Project Documentation along Viva & evaluation support
+          Comprehensive project documentation including abstract, modules, flowcharts, ER diagrams, and testing reports. 
+          We provide continuous viva and evaluation support, helping you prepare answers to potential questions. 
+          Available until your final submission and evaluation is complete.
         </p>
       </div>
     </div>
